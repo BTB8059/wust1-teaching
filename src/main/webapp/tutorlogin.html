@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>登录</title>
+<title>家教登录</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
         //用户名不能为空
@@ -31,22 +31,28 @@
         function mycheck() {
             var username = document.getElementById("username").value.trim();
             var password = document.getElementById("password").value.trim();
-            debugger;
-            $.ajax({
-                type: "get",
-                url: "data.json",
-                data: "username=" + username + "password=" + password,
-                success: function (rm) {
-                    alert(rm.message);
-                    if (rm == "ok") {
-                        $("#confirm").text("登陆成功");
-                    }
-                    else {
-                        $("#confirm").text("登陆失败");
-                    }
-                },
-                dataType: "json"
-            })
+            var xmlhttp;
+        	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+        	  xmlhttp=new XMLHttpRequest();
+        	}
+        	else
+        	{// code for IE6, IE5
+        	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        	}
+
+        	xmlhttp.onreadystatechange=function()
+        	{
+        	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        	  {
+        		  if(xmlhttp.responseText=="success")
+        			  window.location.href='index.html';
+        		  else
+        			  alert("用户名或密码不正确!");
+        		
+        	  }
+        	}	
+        	xmlhttp.open("GET","/wust1-teaching/servlet/LoginServlet?username="+username+"&password="+password",true);
+        	xmlhttp.send();
         }
  </script>
 </head>
@@ -73,6 +79,13 @@
 			   </div>			  
 			   <div class="row btnArea">
 				  <a class="login-btn" id="submit" onclick="mycheck()">登录</a>
+			   </div>
+			   <div class="row tips">
+				  <label>
+				    新用户？
+				  <a href="tutorregister.html" target="_blank">请注册</a>
+				  <a href="#" target="_blank" style="float:right" >忘记密码？</a>
+				  </label>
 			   </div>
 			</form>
          </div>
