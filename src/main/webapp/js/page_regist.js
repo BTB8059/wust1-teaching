@@ -37,9 +37,9 @@ $(document).ready(function(){
 	//获取表单验证对象[填写验证规则]
 	var validate = $("#signupForm").validate({
 		rules: {
-			email: {
+			username: {
 				required: true,
-				email: true
+				username: true
 			},
 			password: {
 				required: true,
@@ -52,23 +52,17 @@ $(document).ready(function(){
 				maxlength: 16,
 				equalTo: "#password"
 			},
-			contact: {
-				required: true
-			},
-			company: {
-				required: true
-			},
-			tel: {
+			phone: {
 				required: true,
 				digits:true
 			},
-			qq: {
+			email: {
 				required: true,
 				digits:true
 			}
 		},
 		messages: {
-			email: {
+			username: {
 				required: $.i18n.prop("Form.PleaseInputEmail"),
 				email: $.i18n.prop("Form.PleaseInputCorrectEmail")
 			},

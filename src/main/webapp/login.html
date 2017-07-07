@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登录</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+        //用户名不能为空
+        function checkUserName() {
+            var name = document.getElementById("username").value.trim();
+            if (name == "") {
+                document.getElementById("nameInfo").innerHTML = "用户名不能为空";
+            }
+            else {
+                document.getElementById("nameInfo").innerHTML = "";
+                return true;
+            }
+        }
+
+        //密码不能为空
+        function checkPassword() {
+            var password = document.getElementById("password").value.trim();
+            if (password == "") {
+                document.getElementById("passwordInfo").innerHTML = "密码不能为空";
+            }
+            else {
+                document.getElementById("passwordInfo").innerHTML = "";
+            }
+        }
+
+        function mycheck() {
+            var username = document.getElementById("username").value.trim();
+            var password = document.getElementById("password").value.trim();
+            debugger;
+            $.ajax({
+                type: "get",
+                url: "data.json",
+                data: "username=" + username + "password=" + password,
+                success: function (rm) {
+                    alert(rm.message);
+                    if (rm == "ok") {
+                        $("#confirm").text("登陆成功");
+                    }
+                    else {
+                        $("#confirm").text("登陆失败");
+                    }
+                },
+                dataType: "json"
+            })
+        }
+ </script>
+</head>
+<body class="loginbody">
+   <div class="dataEye">
+      <div class="loginbox registbox">
+         <div class="logo-a">
+             <img src="img/yuanfudao.jpg" width="150px">
+         </div>
+         <div class="login-content reg-content">
+            <div class="loginbox-title">
+			   <h3>登录</h3>
+			</div>
+			<form id="signupForm">
+			   <div class="row">
+				  <input type="text" class="input-text-user noPic input-click" name="username" id="username" 
+				  onblur="checkUserName()" placeholder="用户名" />
+				  <span id="nameInfo" style="color:red" ></span>
+			   </div>
+			   <div class="row">
+				  <input type="password" class="input-text-password noPic input-click" name="password" id="password"
+				  onblur="checkPassword()" placeholder="密码" />
+				  <span id="passwordInfo" style="color:red" ></span>
+			   </div>			  
+			   <div class="row btnArea">
+				  <a class="login-btn" id="submit" onclick="mycheck()">登录</a>
+			   </div>
+			</form>
+         </div>
+      </div>
+   </div>
+</body>
+</html>
