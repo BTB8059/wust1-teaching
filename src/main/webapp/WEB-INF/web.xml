@@ -9,12 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
   <servlet>
-    <servlet-name>login</servlet-name>
-    <servlet-class>servlet.LoginServlet</servlet-class>
+    <description></description>
+    <display-name>LogServlet</display-name>
+    <servlet-name>LogServlet</servlet-name>
+    <servlet-class>servlet.LogServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>login</servlet-name>
-    <url-pattern>/servlet/LoginServlet</url-pattern>   
+    <servlet-name>LogServlet</servlet-name>
+    <url-pattern>/LogServlet</url-pattern>
   </servlet-mapping>
 </web-app>

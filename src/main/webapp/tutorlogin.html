@@ -47,13 +47,12 @@
         		  if(xmlhttp.responseText=="success")
         			  window.location.href='index.html';
         		  else
-        			  alert("用户名或密码不正确!");
-        		
+        			  alert("用户名或密码不正确!");        		
         	  }
         	}	
-        	xmlhttp.open("GET","/wust1-teaching/servlet/LoginServlet?username="+username+"&password="+password",true);
+        	xmlhttp.open("GET","http://localhost:8080/jiajiaowang/LogServlet?username="+username+"&password="+password,true);
         	xmlhttp.send();
-        }
+        } 
  </script>
 </head>
 <body class="loginbody">
