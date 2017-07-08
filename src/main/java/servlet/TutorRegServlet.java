@@ -1,21 +1,27 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
+import beans.JsonResult;
+
 /**
- * Servlet implementation class LogServlet
+ * Servlet implementation class TutorRegServlet
  */
-public class LogServlet extends HttpServlet {
+public class TutorRegServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogServlet() {
+    public TutorRegServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -25,23 +31,30 @@ public class LogServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username=request.getParameter("username");
-		String password=request.getParameter("password");
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html");
+		response.setContentType("text/json");
+
+		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
+		JsonResult jr=new JsonResult();
 		
-		if((username.equals("hu"))&&(password.equals("123"))){
-			response.getWriter().append("success");
+		if((username.equals("tutor"))){
+			jr.setStatus(0);
+			jr.setMessage("success");
 		}
 		else{
-			response.getWriter().append("error");
+			jr.setStatus(-1);
+			jr.setMessage("error");
 		}
-		
+		Gson gb=new Gson();
+		result.add(jr);
+	    String info=gb.toJson(result);
+	    response.getWriter().append(info);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		doGet(request, response);
 	}
 

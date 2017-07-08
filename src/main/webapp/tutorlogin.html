@@ -45,12 +45,12 @@
         	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
         	  {
         		  if(xmlhttp.responseText=="success")
-        			  window.location.href='index.html';
+        			  window.location.href='homepage.html';
         		  else
         			  alert("用户名或密码不正确!");        		
         	  }
         	}	
-        	xmlhttp.open("GET","http://localhost:8080/jiajiaowang/LogServlet?username="+username+"&password="+password,true);
+        	xmlhttp.open("GET","http://localhost:8080/jiajiaowang/TutorLogServlet?username="+username+"&password="+password,true);
         	xmlhttp.send();
         } 
  </script>
