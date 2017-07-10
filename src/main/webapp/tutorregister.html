@@ -5,7 +5,8 @@
     <title>家教注册</title>
 	<meta charset="utf-8" /> 
 </head>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/style1.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript">
 
 //验证用户名（为3~16个字符，且不能包含”@”和”#”字符）
@@ -55,6 +56,22 @@ function checkPhone() {
         document.getElementById("phoneInfo").innerHTML = "";
     }
 }
+
+function regCheck() {
+	var username = document.getElementById("username").value.trim();
+	 $.ajax({  
+        type: "POST",
+        url: "http://localhost:8080/jiajiaowang/TutorRegServlet",  
+        dataType:"json",
+        data: $('#signupForm').serialize(),  
+        success: function(data){              	
+           if(data.status==0)
+        	   document.getElementById("regInfo").innerHTML = "注册失败，用户名已存在！";
+           else
+        	   window.location.href="tutorlogin.html";              	 
+        }  
+     });     
+} 
 </script>
 <body class="loginbody">
    <div class="dataEye">
@@ -104,7 +121,8 @@ function checkPhone() {
 				  </label>
 			   </div>
 			   <div class="row btnArea">
-				  <a class="login-btn" id="submit">注册</a>
+			      <span id="regInfo" style="color:red"></span>
+				  <a class="login-btn" id="submit" onclick="regCheck()" >注册</a>
 			   </div>
 			</form>
          </div>
