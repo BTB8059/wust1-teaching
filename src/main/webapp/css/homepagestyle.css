@@ -1,0 +1,37 @@
+<style>
+#header {
+    text-align:center;
+    padding:0px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:450px;
+    width:280px;
+    float:left;
+    padding:5px; 
+}
+#section {
+    width:350px;
+    float:left;
+    padding:10px; 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:0px; 
+   
+}
+table.lamp {
+    width:100%;
+    border:1px solid #d4d4d4;
+}
+table.lamp th, td { 
+    padding:10px;
+}
+table.lamp th {
+    width:400px;
+}
+</style>

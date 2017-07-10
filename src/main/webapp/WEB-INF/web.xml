@@ -9,4 +9,34 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>TutorLogServlet</display-name>
+    <servlet-name>TutorLogServlet</servlet-name>
+    <servlet-class>servlet.TutorLogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TutorLogServlet</servlet-name>
+    <url-pattern>/TutorLogServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>JsonServlet</display-name>
+    <servlet-name>JsonServlet</servlet-name>
+    <servlet-class>servlet.JsonServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JsonServlet</servlet-name>
+    <url-pattern>/JsonServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TutorRegServlet</display-name>
+    <servlet-name>TutorRegServlet</servlet-name>
+    <servlet-class>servlet.TutorRegServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TutorRegServlet</servlet-name>
+    <url-pattern>/TutorRegServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
