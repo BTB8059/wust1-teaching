@@ -65,11 +65,10 @@ function regCheck() {
         dataType:"json",
         data: $('#signupForm').serialize(),  
         success: function(data){              	
-           //var obj = JSON.parse(data); //由JSON字符串转换为JSON对象    
            if(data.status==0)
-              window.location.href="tutorlogin.html";
+        	   document.getElementById("regInfo").innerHTML = "注册失败，用户名已存在！";
            else
-        	  document.getElementById("regInfo").innerHTML = "注册失败，用户名已存在！";              	 
+        	   window.location.href="tutorlogin.html";              	 
         }  
      });     
 } 
