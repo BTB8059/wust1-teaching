@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+      <title>家教注册</title>
+      <meta charset="utf-8" />
+</head>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+//下拉列表
+   function GetRadioValue(RadioName){
+        var obj;    
+        obj=document.getElementsByName(RadioName);
+        if(obj!=null){        
+            for( var i=0; i<obj.length; i++){
+               if(obj[i].checked)  return obj[i].value;  
+            }
+       }
+            return null;
+   }
+   //联动函数 级联
+   function redirec(x)
+   {
+   var temp = document.frm.s2;
+   for (i=0;i<select2[x].length;i++)
+   { temp.options[i]=new Option(select2[x][i].text,select2[x][i].value);}
+   temp.options[0].selected=true;
+   }
+</script>
+
+<body class="loginbody">
+   <div class="dataEye">
+      <div class="loginbox registbox">
+         <div class="logo-a">
+             <img src="img/yuanfudao.jpg" width="150px">
+         </div>
+         <div class="login-content reg-content">
+            <div class="loginbox-title">
+			   <h3>家教注册</h3>
+			</div>
+			<form id="signupForm">
+			   <div class="row"> 
+				  <input type="text" class="input-text-user noPic input-click" name="callname" id="callname" 
+				   placeholder="您的称呼" />			  
+			   </div>			
+			   <div class="row"> 
+				  <input type="text" class="input-text-user noPic input-click" name="realname" id="realname" 
+				   placeholder="真实姓名" />
+			   </div>
+			   <div class="row">
+			      <label>性别：</label> 
+				  <label><input type="radio" name="man" id="man" checked="checked"/>男</label>&nbsp;
+                  <label><input type="radio" name="woman" id="woman"/>女</label>
+			   </div>
+			   
+			   <div class="row">
+			      <label>课时费：</label>
+			      <select id="TeachCosts">
+        	         <option value=""></option>
+        	         <option value="100元/小时">100元/小时</option>
+        	         <option value="150元/小时" >150元/小时</option>
+        	         <option value="200元/小时">200元/小时</option>
+        	         <option value="250元/小时">250元/小时</option>
+        	         <option value="300元/小时">300元/小时</option>
+        	         <option value="350元/小时">350元/小时</option>
+        	         <option value="400元/小时">400元/小时</option>
+        	         <option value="450元/小时">450元/小时</option>
+        	         <option value="500元/小时">500元/小时</option>       
+                  </select><br/>
+			   </div>
+			   <div class="row">
+			      <label>授课时间：</label>
+			      <select id="TeachTime">
+        	         <option value="1年">1年</option>
+        	         <option value="2年">2年</option>
+        	         <option value="3年">3年</option>
+        	         <option value="4年">4年</option>
+        	         <option value="5年">5年</option>
+        	         <option value="6年">6年</option>
+        	         <option value="7年">7年</option>
+        	         <option value="8年">8年</option>
+        	         <option value="9年">9年</option>
+        	         <option value="10年">10年</option>        	             
+                  </select><br/>
+			   </div>
+			  
+			   <div class="row">
+			      <label>授课区域：</label>
+			      <select id="TeachArea">
+        	         <option value="武昌区">武昌区</option>
+        	         <option value="洪山区">洪山区</option>
+        	         <option value="江夏区">江夏区</option>
+        	         <option value="青山区">青山区</option>
+        	         <option value="蔡甸区">蔡甸区</option>
+        	         <option value="汉阳区">汉阳区</option>
+        	         <option value="江汉区">江汉区</option>
+        	         <option value="硚口区">硚口区</option>
+        	         <option value="黄陂区">黄陂区</option>
+        	         <option value="新洲区">新洲区</option>      	                	             
+                  </select><br/>
+			   </div>
+			   <div class="row">
+			      <label>教授学科：</label>
+			      <select name="s1" onChange="redirec(document.frm.s1.options.selectedIndex)">
+                       <option selected>请选择</option>
+                       <option value="1">学前教育</option>
+                       <option value="2">小学家教</option>
+                       <option value="3">初中家教</option>
+                       <option value="1">高中家教</option>
+                       <option value="2">外语家教</option>
+                       <option value="3">特长家教</option>
+                 </select>
+			     <select name="s2">
+                       <option value="请选择" selected>请选择</option>
+                 </select>
+            </form>
+               <script language="javascript">
+                 //获取一级菜单长度
+                 var select1_len = document.frm.s1.options.length;
+                 var select2 = new Array(select1_len);
+                 //把一级菜单都设为数组
+                 for (i=0; i<select1_len; i++)
+                 { select2[i] = new Array();}
+                 //定义基本选项
+                 select2[0][0] = new Option("请选择", " ");
+
+                 select2[1][0] = new Option("幼儿陪玩"", " ");
+                 select2[1][1] = new Option("幼儿托管", " ");
+                 select2[1][2] = new Option("少儿英语", " ");
+                 select2[1][3] = new Option("幼儿园", " ");
+                 select2[1][4] = new Option("学前教育", " ");
+                 
+                 select2[2][0] = new Option("小学英语"", " ");
+                 select2[2][1] = new Option("小学数学", " ");
+                 select2[2][2] = new Option("小学奥数", " ");
+
+                 select2[3][0] = new Option("初中英语", " ");
+                 select2[3][1] = new Option("初中数学", " ");
+                 select2[3][2] = new Option("初中文综", " ");
+                 select2[3][3] = new Option("初中理综", " ");
+                 
+                 select2[4][0] = new Option("高中英语", " ");
+                 select2[4][1] = new Option("高中数学", " ");
+                 select2[4][2] = new Option("高中文综", " ");
+                 select2[4][3] = new Option("高中理综", " ");
+                 
+                 select2[5][0] = new Option("英语口语", " ");
+                 select2[5][1] = new Option("新概念英语", " ");
+                 select2[5][2] = new Option("剑桥英语", " ");
+                 select2[5][3] = new Option("托福", " ");
+                 select2[5][4] = new Option("日语", " ");
+                 select2[5][5] = new Option("德语", " ");
+                 select2[5][6] = new Option("法语", " ");
+                 select2[5][7] = new Option("韩语", " ");
+                 
+                 select2[6][0] = new Option("钢琴", " ");
+                 select2[6][1] = new Option("素描", " ");
+                 select2[6][2] = new Option("吉他", " ");
+                 select2[6][3] = new Option("声乐", " ");                            
+            </script>
+        </div>
+ 
+
+
+
+</body>
+</html>
