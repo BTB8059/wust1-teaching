@@ -1,10 +1,15 @@
 package servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import beans.JsonResult;
+
+import com.google.gson.Gson;
 
 /**
  * Servlet implementation class LogServlet
@@ -29,13 +34,26 @@ public class TutorLogServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		
-		if((username.equals("tutor"))&&(password.equals("tutor"))){
+		/*if((username.equals("tutor"))&&(password.equals("tutor"))){
 			response.getWriter().append("success");
 		}
 		else{
 			response.getWriter().append("error");
-		}
+		}*/
+        JsonResult jr=new JsonResult();
 		
+		if((username.equals("tutor"))&&(password.equals("tutor"))){
+			jr.setStatus(0);
+			jr.setMessage("success");
+		}
+		else{
+			jr.setStatus(-1);
+			jr.setMessage("error");
+		}
+		Gson gb=new Gson();
+
+	    String info=gb.toJson(jr);
+	    response.getWriter().append(info);
 	}
 
 	/**

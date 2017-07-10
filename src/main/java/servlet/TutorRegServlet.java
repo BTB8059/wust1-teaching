@@ -34,7 +34,6 @@ public class TutorRegServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/json");
 
-		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
 		JsonResult jr=new JsonResult();
 		
 		if((username.equals("tutor"))){
@@ -46,8 +45,8 @@ public class TutorRegServlet extends HttpServlet {
 			jr.setMessage("error");
 		}
 		Gson gb=new Gson();
-		result.add(jr);
-	    String info=gb.toJson(result);
+
+	    String info=gb.toJson(jr);
 	    response.getWriter().append(info);
 	}
 
