@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>家教登录</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript">
         //用户名不能为空
         function checkUserName() {
@@ -31,7 +32,19 @@
         function mycheck() {
             var username = document.getElementById("username").value.trim();
             var password = document.getElementById("password").value.trim();
-            var xmlhttp;
+            $.ajax({  
+                type: "POST",
+                url: "http://localhost:8080/jiajiaowang/TutorLogServlet",  
+                dataType:"json",
+                data: $('#signupForm').serialize(),  
+                success: function(data){              	
+                   if(data.status==0)
+                	   window.location.href='homepage.html';
+                   else
+                	   document.getElementById("passwordInfo").innerHTML = "用户名或密码不正确!";              	 
+                }  
+             });     
+            /* var xmlhttp;
         	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
         	  xmlhttp=new XMLHttpRequest();
         	}
@@ -51,7 +64,7 @@
         	  }
         	}	
         	xmlhttp.open("GET","http://localhost:8080/jiajiaowang/TutorLogServlet?username="+username+"&password="+password,true);
-        	xmlhttp.send();
+        	xmlhttp.send(); */
         } 
  </script>
 </head>
