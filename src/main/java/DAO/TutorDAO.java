@@ -10,7 +10,7 @@ import beans.Tutor;
 
 public class TutorDAO {
 	public static final String DRIVER="org.gjt.mm.mysql.Driver";
-	public static final String DBURL="jdbc:mysql://localhost:3306/jiajiao";
+	public static final String DBURL="jdbc:mysql://localhost:3306/jiajiaowang?useUnicode=true&characterEncoding=utf-8";
 	public static final String DBUSER="root";
 	public static final String DBPASS="1125";
     
@@ -47,7 +47,7 @@ public class TutorDAO {
 	public boolean isUsernameExists(String username) {
 		conn=getConnectionn();
 		try {
-			pStat =conn.prepareStatement("select * from tutor where username=?");
+			pStat =conn.prepareStatement("select * from tutors where username=?");
 			pStat.setString(1, username);
 			rs=pStat.executeQuery();
 			if( rs.next() ) 
@@ -70,7 +70,7 @@ public class TutorDAO {
 	public boolean findTutor(String username){
 		conn=getConnectionn();
 		try {
-			pStat =conn.prepareStatement("select * from tutor where username=?");
+			pStat =conn.prepareStatement("select * from tutors where username=?");
 		    pStat.setString(1, username);
 		    rs=pStat.executeQuery();
 		    if( rs.next() ) 
@@ -92,7 +92,7 @@ public class TutorDAO {
 	public boolean addTutor(Tutor tutor) {
 		conn=getConnectionn();
 		try {
-			pStat=conn.prepareStatement("insert into tutor values(null,?,?,?,?,?,?,?,?)");
+			pStat=conn.prepareStatement("insert into tutors values(null,?,?,?,?,?,?,?,?)");
 		    pStat.setString(1, tutor.getUsername());
 		    pStat.setString(2, tutor.getSex());
 		    pStat.setString(3, tutor.getSchool());
@@ -120,7 +120,7 @@ public class TutorDAO {
 	{
 		conn=getConnectionn();
 		try{
-			pStat=conn.prepareStatement("update tutor set username=?,sex=?,school=?,major=?,education=?,teacharea=?,subject=?,comment=? where id=?");
+			pStat=conn.prepareStatement("update tutors set username=?,sex=?,school=?,major=?,education=?,teacharea=?,subject=?,comment=? where id=?");
 		    pStat.setString(1, username);
 		    pStat.setString(2, sex);
 		    pStat.setString(3, school);
@@ -147,7 +147,7 @@ public class TutorDAO {
 	public int findTutorId(String username){
 		conn=getConnectionn();
 		try {
-			pStat =conn.prepareStatement("select id from tutor where username=?");
+			pStat =conn.prepareStatement("select id from tutors where username=?");
 		    pStat.setString(1, username);
 		    rs=pStat.executeQuery();
 		    if( rs.next() ) 
@@ -171,7 +171,7 @@ public class TutorDAO {
 		conn=getConnectionn(); 
           
         try {  
-        	String sql="select * from tutor";
+        	String sql="select * from tutors";
             pStmt = conn.prepareStatement(sql);
             ResultSet rs=pStmt.executeQuery(); 
 

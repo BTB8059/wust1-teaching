@@ -32,15 +32,30 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         
    <script type="text/javascript">
-   $(function () {
+   $(document).ready(function(){
        $.ajax({
            type: "POST",
            url: "http://localhost:8080/jiajiaowang/QueryServlet",  
-           dataType:"json",
-           data: $('#dv').,  
+           dataType:"json", 
            success: function(data){              	
-              
+               $("#maintable tbody tr").remove();
+               for (var i = 0; i < data.length; i++) {
+                   var row = $("#content").clone();
+                   row.find("#id").text(data[i].id);
+                   row.find("#username").text(data[i].username);
+                   row.find("#sex").text(data[i].sex);
+                   row.find("#school").text(data[i].school);
+                   row.find("#major").text(data[i].major);
+                   row.find("#education").text(data[i].education);
+                   row.find("#teacharea").text(data[i].teacharea);
+                   row.find("#subject").text(data[i].subject);
+                   row.find("#comment").text(data[i].comment);
+                   row.appendTo("#maintable");
+               }
            }  
+           error: function () {
+               alert("加载失败");
+           }
        });
    });
   </script>
@@ -454,7 +469,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body" id="dv">
-              <table id="example2" class="table table-bordered table-hover">
+              <table id="maintable" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>编号</th>
@@ -469,16 +484,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet</td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                  <td>X</td>
-                  <td>X</td>
-                  <td>X</td>
-                  <td>X</td>
+                <tr id="content">
+                  <td id="id">Trident</td>
+                  <td id="username">Internet</td>
+                  <td id="sex">Win 95+</td>
+                  <td id="school"> 4</td>
+                  <td id="major">X</td>
+                  <td id="education">X</td>
+                  <td id="teacharea">X</td>
+                  <td id="subject">X</td>
+                  <td id="comment">X</td>
                 </tr>
                 </tbody>
                 <tfoot>

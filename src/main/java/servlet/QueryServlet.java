@@ -34,11 +34,11 @@ public class QueryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html");
+		response.setContentType("text/json");
 		
 		TutorDAO dao=new TutorDAO();
         ArrayList<Tutor> list =dao.getTutorList();
-        
+       
         Gson gb=new Gson();
 	    String info=gb.toJson(list);
 	    response.getWriter().append(info);		
