@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | General Form Elements</title>
+  <title>添加家教信息</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -23,6 +23,29 @@
 
 
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
+  
+  <script type="text/javascript">
+  function addcheck() {
+	//var name = document.getElementById("username").value.trim();
+	//alert(name);
+    //alert($('#addform').serialize());
+
+      $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/jiajiaowang/TutorAddServlet",  
+          dataType:"json",
+          data: $('#addform').serialize(),  
+          success: function(data){              	
+             if(data.status==0)
+            	 document.getElementById("submitInfo").innerHTML = "用户名已存在";
+             else if(data.status==1)
+            	 window.location.href='tutorInfor.html';
+             else
+            	 document.getElementById("submitInfo").innerHTML = "家教信息添加失败";
+          }  
+       });  
+    }
+  </script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -407,7 +430,7 @@
           </ul>
         </li>
         <li class="active"><a href="pages/forms/general.html"><i class="fa fa-link"></i> <span>家教信息录入</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>个人信息</span></a></li>
+        <li><a href="../../tutorInfor.html"><i class="fa fa-link"></i> <span>个人信息</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -431,8 +454,6 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <!-- left column -->
-        <div class="col-md-6">
 
         <!-- right column -->
         <div class="col-md-6">
@@ -441,13 +462,14 @@
             <div class="box-header with-border">
               <h3 class="box-title">基本信息</h3>
             </div>
+            
             <!-- /.box-header -->
             <div class="box-body">
-              <form role="form">
+              <form role="form" id="addform">
                 <!-- text input -->
                 <div class="form-group">
                   <label>姓名</label>
-                  <input type="text" class="form-control" placeholder="输入 ...">
+                  <input type="text" id="username" name="username" class="form-control" placeholder="输入 ...">
                 </div>
                 
                 <!-- radio -->
@@ -455,102 +477,96 @@
                 <label>性别</label>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                      <input type="radio" name="sex" id="sex1" value="男" checked>
                                                             男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                       <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                       <input type="radio" name="sex" id="sex2" value="女">
                                                               女                                     
                     </label>
                   </div>
-                  <!-- <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                                              女
-                    </label>
-                  </div> -->
                 </div>
                 
                 <!-- text input -->
                 <div class="form-group">
                   <label>就读院校</label>
-                  <input type="text" class="form-control" placeholder="输入 ...">
+                  <input type="text" name="school" id="school" class="form-control" placeholder="输入 ...">
                 </div>
                 <div class="form-group">
                   <label>专业</label>
-                  <input type="text" class="form-control" placeholder="输入 ...">
+                  <input type="text" name="major" id="major" class="form-control" placeholder="输入 ...">
                 </div>
                 
                 <!-- select -->
                 <div class="form-group">
                   <label>学历</label>
-                  <select class="form-control">
-                    <option>在校大一学生</option>
-                    <option>在校大二学生</option>
-                    <option>在校大三学生</option>
-                    <option>在校大四学生</option>
-                    <option>本科毕业</option>
-                    <option>硕士在读</option>
-                    <option>硕士毕业</option>
+                  <select class="form-control" id="education" name="education">
+                    <option value="在校大一学生">在校大一学生</option>
+                    <option value="在校大二学生">在校大二学生</option>
+                    <option value="在校大三学生">在校大三学生</option>
+                    <option value="在校大四学生">在校大四学生</option>
+                    <option value="本科毕业">本科毕业</option>
+                    <option value="硕士在读">硕士在读</option>
+                    <option value="硕士毕业">硕士毕业</option>
                   </select>
                 </div>
                 
                 <div class="form-group">
                   <label>授课区域</label>
-                  <select class="form-control">
-                    <option>武昌区</option>
-                    <option>洪山区</option>
-                    <option>汉阳区</option>
-                    <option>江岸区</option>
-                    <option>硚口区</option>
-                    <option>江夏区</option>
-                    <option>黄陂区</option>
-                    <option>青山区</option>
-                    <option>汉南区</option>
-                    <option>东西湖区</option>
-                    <option>蔡甸区</option>
-                    <option>新洲区</option>
+                  <select class="form-control" id="teacharea" name="teacharea">
+                    <option value="武昌区">武昌区</option>
+                    <option value="洪山区">洪山区</option>
+                    <option value="汉阳区">汉阳区</option>
+                    <option value="江岸区">江岸区</option>
+                    <option value="硚口区">硚口区</option>
+                    <option value="江夏区">江夏区</option>
+                    <option value="黄陂区">黄陂区</option>
+                    <option value="青山区">青山区</option>
+                    <option value="汉南区">汉南区</option>
+                    <option value="东西湖区">东西湖区</option>
+                    <option value="蔡甸区">蔡甸区</option>
+                    <option value="新洲区">新洲区</option>
                   </select>
                 </div>
                 
                 <!-- Select multiple-->
                 <div class="form-group">
                   <label>可辅导科目</label>
-                  <select multiple class="form-control">
-                    <option>启蒙教育</option>
-                    <option>学前教育</option>
-                    <option>幼儿托管</option>
-                    <option>小学数学</option>
-                    <option>小学英语</option>
-                    <option>小学奥数</option>
-                    <option>初中数学</option>
-                    <option>初中英语</option>
-                    <option>初中物理</option>
-                    <option>初中化学</option>
-                    <option>初中历史</option>
-                    <option>高中数学</option>
-                    <option>高中英语</option>
-                    <option>高中理科综合</option>
-                    <option>高中文科综合</option>
-                    <option>英语口语</option>
-                    <option>商务英语</option>
-                    <option>GRE家教</option>
-                    <option>雅思家教</option>
-                    <option>钢琴</option>
-                    <option>小提琴</option>
-                    <option>美声声乐</option>                    
+                  <select multiple class="form-control" id="subject" name="subject">
+                    <option value="启蒙教育">启蒙教育</option>
+                    <option value="学前教育">学前教育</option>
+                    <option value="幼儿托管">幼儿托管</option>
+                    <option value="小学数学">小学数学</option>
+                    <option value="小学英语">小学英语</option>
+                    <option value="小学奥数">小学奥数</option>
+                    <option value="初中数学">初中数学</option>
+                    <option value="初中英语">初中英语</option>
+                    <option value="初中物理">初中物理</option>
+                    <option value="初中化学">初中化学</option>
+                    <option value="初中历史">初中历史</option>
+                    <option value="高中数学">高中数学</option>
+                    <option value="高中英语">高中英语</option>
+                    <option value="高中理科综合">高中理科综合</option>
+                    <option value="高中文科综合">高中文科综合</option>
+                    <option value="英语口语">英语口语</option>
+                    <option value="商务英语">商务英语</option>
+                    <option value="GRE家教">GRE家教</option>
+                    <option value="雅思家教">雅思家教</option>
+                    <option value="钢琴">钢琴</option>
+                    <option value="小提琴">小提琴</option>
+                    <option value="美声声乐">美声声乐</option>                    
                   </select>
                 </div>                
                
                 <!-- textarea -->
                 <div class="form-group">
                   <label>备注</label>
-                  <textarea class="form-control" rows="3" placeholder="输入 ..."></textarea>
+                  <textarea class="form-control" name="comment" rows="3" placeholder="输入 ..."></textarea>
+                  <span id="submitInfo" style="color:red" ></span>
                 </div>
                 <div class="box-footer">
                 <button type="submit" class="btn btn-default">取消</button>
-                <button type="submit" class="btn btn-info pull-right">提交</button>
+                <button type="button" class="btn btn-info pull-right" onclick="addcheck()">提交</button>
               </div>
               <!-- /.box-footer -->
-
               </form>
             </div>
             <!-- /.box-body -->
@@ -559,7 +575,6 @@
         </div>
         <!--/.col (right) -->
       </div>
-      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
