@@ -39,4 +39,24 @@
     <servlet-name>TutorRegServlet</servlet-name>
     <url-pattern>/TutorRegServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TutorAddServlet</display-name>
+    <servlet-name>TutorAddServlet</servlet-name>
+    <servlet-class>servlet.TutorAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TutorAddServlet</servlet-name>
+    <url-pattern>/TutorAddServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QueryServlet</display-name>
+    <servlet-name>QueryServlet</servlet-name>
+    <servlet-class>servlet.QueryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QueryServlet</servlet-name>
+    <url-pattern>/QueryServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
