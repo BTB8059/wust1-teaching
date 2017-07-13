@@ -59,4 +59,14 @@
     <servlet-name>QueryServlet</servlet-name>
     <url-pattern>/QueryServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UsernameServlet</display-name>
+    <servlet-name>UsernameServlet</servlet-name>
+    <servlet-class>servlet.UsernameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsernameServlet</servlet-name>
+    <url-pattern>/UsernameServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
