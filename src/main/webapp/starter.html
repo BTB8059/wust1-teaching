@@ -39,27 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <script  type="text/javascript">
-        $.ajax({  
-	            type: "POST",  
-	            url: "http://localhost:8080/jiajiaowang/UsernameServlet",  
-	            dataType:"json", 	           
-                success: function(data){
-                	alert(data.message);
-                	if(data.status==0)
-	                {
-                		var username=data.message;
-                		//debugger;
-                		alert(username);
-                		document.getElementById("changeword1").innerHTML="<font size='3' color='black'>"+username+"</font>"; 
-                        document.getElementById("changeword2").innerHTML="在线"; 
-	                }
-                
-	                	 
-	            }  
-	        })  ;    
-	</script>
-
+  
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -720,6 +700,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="js/adminlte.min.js"></script>
+<script  type="text/javascript">
+  $(document).ready(function(){
+        $.ajax({  
+	            type: "POST",  
+	            url: "http://localhost:8080/jiajiaowang/UsernameServlet",  
+	            dataType:"json", 	           
+                success: function(data){
+                	if(data.status==0)
+	                {
+                		var username=data.message;
+                		document.getElementById("changeword1").innerHTML="<font size='3' color='white'>"+username+"</font>"; 
+                        document.getElementById("changeword2").innerHTML="在线"; 
+	                }
+                
+	                	 
+	            }  
+	        })  ;    
+  })
+	</script>
+
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
