@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 
 import DAO.TutorDAO;
 import beans.JsonResult;
+import beans.JsonTutor;
 import beans.Tutor;
 
 /**
@@ -38,22 +39,25 @@ public class QueryServlet extends HttpServlet {
 		
 		TutorDAO dao=new TutorDAO();
         ArrayList<Tutor> list =dao.getTutorList();
-        
+        JsonTutor json=new JsonTutor();
+        int count=0;
         for(Tutor tu : list)
-        {
-        	System.out.println(tu.getId());
-        	System.out.println(tu.getUsername());
-        	System.out.println(tu.getSex());
-        	System.out.println(tu.getSchool());
-        	System.out.println(tu.getMajor());
-        	System.out.println(tu.getEducation());
-        	System.out.println(tu.getTeacharea());
-        	System.out.println(tu.getSubject());
-        	System.out.println(tu.getComment());        	
+        { 
+        	count++;
         }
+        int draw;
+		if (request.getParameter("draw") == null)
+			draw = 1;
+		else{
+			draw = Integer.parseInt(request.getParameter("draw"));
+		}
+        json.setDraw(draw);
+        json.setRecordsTotal(count);
+        json.setRecordsFiltered(10);
+        json.setData(list);
        
         Gson gb=new Gson();
-	    String info=gb.toJson(list);
+	    String info=gb.toJson(json);
 	    response.getWriter().append(info);		
 		
 	}
