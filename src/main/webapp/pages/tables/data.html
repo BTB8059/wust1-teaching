@@ -500,8 +500,8 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="../../js/bootstrap.min.js"></script>
 <!-- DataTables -->
-<script src="../../js/jquery.dataTables.min.js"></script>
-<script src="../../js/dataTables.bootstrap.min.js"></script>
+<script src="../../js/jquery.dataTables.js"></script>
+<script src="../../js/dataTables.bootstrap.js"></script>
 <!-- SlimScroll -->
 <script src="../../js/jquery.slimscroll.js"></script>
 <!-- FastClick -->
@@ -521,8 +521,19 @@
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : false,
-      serverSide	: true,
-      ajax		:'http://localhost:8080/jiajiaowang/QueryServlet'
+      //serverSide	: true,
+      ajax		:'http://localhost:8080/jiajiaowang/QueryServlet',
+      "columns": [
+          { "data": "id" },
+          { "data": "username" },
+          { "data": "sex" },
+          { "data": "school" },
+          { "data": "major" },
+          { "data": "education" },
+          { "data": "teacharea" },
+          { "data": "subject" },
+          { "data": "comment" }
+      ]
     })
   });
 </script>
