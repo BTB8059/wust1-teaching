@@ -30,9 +30,6 @@
         }
 
         function mycheck() {
-        	alert($('#signupForm').serialize());
-            var username = document.getElementById("username").value.trim();
-            var password = document.getElementById("password").value.trim();
             $.ajax({  
                 type: "POST",
                 url: "http://localhost:8080/jiajiaowang/TutorLogServlet",  
