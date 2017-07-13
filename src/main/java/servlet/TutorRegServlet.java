@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import DAO.UserDAO;
 import beans.JsonResult;
+import beans.User;
 
 /**
  * Servlet implementation class TutorRegServlet
@@ -29,21 +31,36 @@ public class TutorRegServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username=request.getParameter("username");
+		String password=request.getParameter("password");
+		String phone=request.getParameter("phone");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/json");
+		
+		User user=new User();
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setPhone(phone);
 
 		JsonResult jr=new JsonResult();
+		UserDAO userdao=new UserDAO();
 		
-		if((username.equals("tutor"))){
+		if(userdao.isUsernameExists(username)){
 			jr.setStatus(0);
-			jr.setMessage("success");
+			jr.setMessage("username exist");
 		}
 		else{
-			jr.setStatus(-1);
-			jr.setMessage("error");
+			boolean flag=userdao.addUser(user);
+			if(flag){
+				jr.setStatus(1);
+				jr.setMessage("success");
+			}
+			else{
+				jr.setStatus(-1);
+				jr.setMessage("error");
+			}
 		}
+		
 		Gson gb=new Gson();
-
 	    String info=gb.toJson(jr);
 	    response.getWriter().append(info);
 	}
