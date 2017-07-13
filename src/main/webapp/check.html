@@ -6,31 +6,66 @@
 <link href="css/homepagestyle.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="header">
-<h1>City Gallery</h1>
-</div>
+ <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Hover Data Table</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body" id="dv">
+              <table id="maintable" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>编号</th>
+                  <th>姓名</th>
+                  <th>性别</th>
+                  <th>就读院校</th>
+                  <th>专业</th>
+                  <th>学历</th>
+                  <th>授课区域</th>
+                  <th>可辅导科目</th>
+                  <th>备注</th>
+                </tr>
+                </thead>
+                <tbody>
+               
+                <tr id="content">
+                  <td id="id">$u.getid()</td>
+                  <td id="username">u.getusername</td>
+                  <td id="sex">u.getsex</td>
+                  <td id="school"> 4</td>
+                  <td id="major">X</td>
+                  <td id="education">X</td>
+                  <td id="teacharea">X</td>
+                  <td id="subject">X</td>
+                  <td id="comment">X</td>
+                </tr>
+                </tbody>
+                <tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
 
-<div id="nav">
-London<br>
-Paris<br>
-Tokyo<br>
-</div>
-
-<div id="section">
-<h1>London</h1>
-<p>
-London is the capital city of England. It is the most populous city in the United Kingdom,
-with a metropolitan area of over 13 million inhabitants.
-</p>
-<p>
-Standing on the River Thames, London has been a major settlement for two millennia,
-its history going back to its founding by the Romans, who named it Londinium.
-</p>
-</div>
-
-<div id="footer">
-Copyright W3School.com.cn
-</div>
-
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+<script type="text/javascript">
+ $(function(){   
+	 String errMsg=(String)session.getAttribute("err");
+	 if( errMsg!=null ) {
+	   	session.removeAttribute("err");
+	 }
+	 UserDAO dao=new UserDAO();
+     ArrayList<User> list =dao.getUserList();    
+     for(User u:list){}
+});
+ </script>
 </body>
 </html>
