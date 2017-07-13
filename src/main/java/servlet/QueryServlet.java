@@ -38,6 +38,19 @@ public class QueryServlet extends HttpServlet {
 		
 		TutorDAO dao=new TutorDAO();
         ArrayList<Tutor> list =dao.getTutorList();
+        
+        for(Tutor tu : list)
+        {
+        	System.out.println(tu.getId());
+        	System.out.println(tu.getUsername());
+        	System.out.println(tu.getSex());
+        	System.out.println(tu.getSchool());
+        	System.out.println(tu.getMajor());
+        	System.out.println(tu.getEducation());
+        	System.out.println(tu.getTeacharea());
+        	System.out.println(tu.getSubject());
+        	System.out.println(tu.getComment());        	
+        }
        
         Gson gb=new Gson();
 	    String info=gb.toJson(list);
