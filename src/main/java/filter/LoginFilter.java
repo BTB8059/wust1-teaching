@@ -36,7 +36,7 @@ public class LoginFilter implements Filter {
 		HttpServletRequest httprequest=(HttpServletRequest)request;
 		HttpServletResponse httpresponse = (HttpServletResponse)response;
 		String url=httprequest.getRequestURI();
-		if(httprequest.getSession().getAttribute("username") != null ||url.equals("/jiajiaowang/tutorlogin.html")){
+		if(httprequest.getSession().getAttribute("username") != null ||url.equals("/jiajiaowang/tutorlogin.html")||url.equals("/jiajiaowang/tutorregister.html")){
 			// pass the request along the filter chain
 			chain.doFilter(request, response);
 		}
