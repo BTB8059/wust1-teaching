@@ -11,6 +11,8 @@ import beans.JsonResult;
 
 import com.google.gson.Gson;
 
+import DAO.UserDAO;
+
 /**
  * Servlet implementation class LogServlet
  */
@@ -34,24 +36,23 @@ public class TutorLogServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		
-		/*if((username.equals("tutor"))&&(password.equals("tutor"))){
-			response.getWriter().append("success");
-		}
-		else{
-			response.getWriter().append("error");
-		}*/
-        JsonResult jr=new JsonResult();
+		UserDAO userdao=new UserDAO();
+		boolean flag=userdao.findUser(username, password);
 		
-		if((username.equals("tutor"))&&(password.equals("tutor"))){
-			jr.setStatus(0);
+        JsonResult jr=new JsonResult();
+        
+        if( flag ) 
+		{
+        	jr.setStatus(0);
 			jr.setMessage("success");
+			request.getSession().setAttribute("username", username);
 		}
 		else{
 			jr.setStatus(-1);
 			jr.setMessage("error");
 		}
+        
 		Gson gb=new Gson();
-
 	    String info=gb.toJson(jr);
 	    response.getWriter().append(info);
 	}

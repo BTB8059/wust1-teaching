@@ -67,6 +67,8 @@ function regCheck() {
         success: function(data){              	
            if(data.status==0)
         	   document.getElementById("regInfo").innerHTML = "注册失败，用户名已存在！";
+           else if(data.status==-1)
+        	   document.getElementById("regInfo").innerHTML = "注册失败！";
            else
         	   window.location.href="tutorlogin.html";              	 
         }  

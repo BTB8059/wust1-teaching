@@ -40,32 +40,11 @@
                 data: $('#signupForm').serialize(),  
                 success: function(data){              	
                    if(data.status==0)
-                	   window.location.href='homepage.html';
+                	   window.location.href='starter.html';
                    else
                 	   document.getElementById("passwordInfo").innerHTML = "用户名或密码不正确!!";              	 
                 }  
              });     
-            /* var xmlhttp;
-        	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-        	  xmlhttp=new XMLHttpRequest();
-        	}
-        	else
-        	{// code for IE6, IE5
-        	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        	}
-
-        	xmlhttp.onreadystatechange=function()
-        	{
-        	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-        	  {
-        		  if(xmlhttp.responseText=="success")
-        			  window.location.href='homepage.html';
-        		  else
-        			  alert("用户名或密码不正确!");        		
-        	  }
-        	}	
-        	xmlhttp.open("GET","http://localhost:8080/jiajiaowang/TutorLogServlet?username="+username+"&password="+password,true);
-        	xmlhttp.send(); */
         } 
  </script>
 </head>
