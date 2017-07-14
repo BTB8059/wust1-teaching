@@ -8,10 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.JsonResult;
+import dao.UserDAO;
 
 import com.google.gson.Gson;
-
-import DAO.UserDAO;
 
 /**
  * Servlet implementation class LogServlet
