@@ -31,4 +31,4 @@
 * email:916954186@qq.com
 * address:武汉科技大学黄家湖校区
 
-*** Copy Right@wust1-BTB
+***Copy Right***@wust1-BTB
