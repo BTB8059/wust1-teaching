@@ -181,11 +181,50 @@
     <section class="content-header">
       <h1>
         <img src="img/yuanfudao.jpg" width="80px" style="margin-right:250px">
-                     家教个人信息
       </h1>
-    </section>
+     <!-- Main content -->
+    <section class="content">
+      <div class="row">
 
-    
+        <!-- right column -->
+        <div class="col-md-6">
+          <!-- general form elements disabled -->
+          <div class="box box-warning">
+            <div class="box-header with-border">
+              <h3 class="box-title">个人基本信息</h3>
+            </div>
+            
+            <!-- /.box-header -->
+            <div class="box-body">
+              <form role="form" id="editform">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>姓名</label>
+                  <input type="text" id="username" name="username" class="form-control" placeholder="输入 ...">
+                </div>                
+                <!-- text input -->
+                <div class="form-group">
+                  <label>密码</label>
+                  <input type="text" name="password" id="password" class="form-control" placeholder="输入 ...">
+                </div>
+                <div class="form-group">
+                  <label>手机号码</label>
+                  <input type="text" name="phone" id="phone" class="form-control" placeholder="输入 ...">
+                  <span id="submitInfo" style="color:red" ></span>
+                </div>
+                <div class="box-footer">
+                <button type="submit" class="btn btn-default">取消</button>
+                <button type="button" class="btn btn-info pull-right" onclick="editcheck()">提交</button>
+              </div>
+              <!-- /.box-footer -->
+              </form>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+      </div>
     </section>
     <!-- /.content -->
   </div>
@@ -307,6 +346,42 @@
 	            }  
 	        })  ;    
   })
+	</script>
+	<script  type="text/javascript">
+  $(document).ready(function(){
+	  $.ajax({  
+          type: "POST",
+          url: "http://localhost:8080/jiajiaowang/InforServlet",  
+          dataType:"json",  
+          success: function(data){              	
+             if(data.status==0){
+            	 document.getElementById("username").value=data.username;
+            	 document.getElementById("password").value=data.password;
+            	 document.getElementById("phone").value=data.phone;
+            	  
+             }
+             else
+          	     document.getElementById("submitInfo").innerHTML = "原用户信息加载失败!!";              	 
+          }  
+       });   
+  })
+  
+  function editcheck() {
+      $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/jiajiaowang/EditServlet",  
+          dataType:"json",
+          data: $('#editform').serialize(),  
+          success: function(data){              	
+             if(data.status==0)
+            	 document.getElementById("submitInfo").innerHTML = "用户信息修改成功！";
+             else if(data.status==-2)
+            	 document.getElementById("submitInfo").innerHTML = "用户名已存在！";
+             else
+            	 document.getElementById("submitInfo").innerHTML = "用户信息修改失败！";
+          }  
+       });  
+    }
 	</script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.

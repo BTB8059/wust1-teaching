@@ -78,4 +78,24 @@
     <filter-name>LoginFilter</filter-name>
     <url-pattern>*.html</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InforServlet</display-name>
+    <servlet-name>InforServlet</servlet-name>
+    <servlet-class>servlet.InforServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InforServlet</servlet-name>
+    <url-pattern>/InforServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditServlet</display-name>
+    <servlet-name>EditServlet</servlet-name>
+    <servlet-class>servlet.EditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditServlet</servlet-name>
+    <url-pattern>/EditServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

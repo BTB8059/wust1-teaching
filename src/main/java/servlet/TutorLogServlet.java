@@ -45,6 +45,7 @@ public class TutorLogServlet extends HttpServlet {
         	jr.setStatus(0);
 			jr.setMessage("success");
 			request.getSession().setAttribute("username", username);
+			request.getSession().setAttribute("password", password);
 		}
 		else{
 			jr.setStatus(-1);
