@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 import beans.JsonResult;
 import beans.JsonTutor;
 import beans.Tutor;
-import DAO.TutorDAO;
+import dao.TutorDAO;
 
 /**
  * Servlet implementation class QueryServlet

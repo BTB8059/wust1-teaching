@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.JsonResult;
-import DAO.UserDAO;
+import dao.UserDAO;
 
 import com.google.gson.Gson;
 

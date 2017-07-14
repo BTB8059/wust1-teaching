@@ -10,7 +10,7 @@ import com.google.gson.Gson;
 
 import beans.JsonResult;
 import beans.Tutor;
-import DAO.TutorDAO;
+import dao.TutorDAO;
 
 /**
  * Servlet implementation class TutorAddServlet
