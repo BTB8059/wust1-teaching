@@ -32,7 +32,7 @@
 
       $.ajax({
           type: "POST",
-          url: "http://localhost:8080/jiajiaowang/TutorAddServlet",  
+          url: "/jiajiaowang/TutorAddServlet",  
           dataType:"json",
           data: $('#addform').serialize(),  
           success: function(data){              	
@@ -559,7 +559,7 @@
   $(document).ready(function(){
         $.ajax({  
 	            type: "POST",  
-	            url: "http://localhost:8080/jiajiaowang/UsernameServlet",  
+	            url: "/jiajiaowang/UsernameServlet",  
 	            dataType:"json", 	           
                 success: function(data){
                 	if(data.status==0)

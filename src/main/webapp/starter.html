@@ -706,7 +706,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   $(document).ready(function(){
         $.ajax({  
 	            type: "POST",  
-	            url: "http://localhost:8080/jiajiaowang/UsernameServlet",  
+	            url: "/jiajiaowang/UsernameServlet",  
 	            dataType:"json", 	           
                 success: function(data){
                 	if(data.status==0)

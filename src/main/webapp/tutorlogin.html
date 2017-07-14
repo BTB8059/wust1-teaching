@@ -32,7 +32,7 @@
         function mycheck() {
             $.ajax({  
                 type: "POST",
-                url: "http://localhost:8080/jiajiaowang/TutorLogServlet",  
+                url: "/jiajiaowang/TutorLogServlet",  
                 dataType:"json",
                 data: $('#signupForm').serialize(),  
                 success: function(data){              	
