@@ -346,51 +346,45 @@
   
   
    <!-- Main content -->
-   
-  <!-- /.box-header -->
-  <section id="section">
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
+ <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+           <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding" id="dv">
+              <table id="qimeng" class="table table-hover">
+              <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>User</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                  <th>Reason</th>
+                  <th>编号</th>
+                  <th>姓名</th>
+                  <th>性别</th>
+                  <th>就读院校</th>
+                  <th>专业</th>
+                  <th>学历</th>
+                  <th>授课区域</th>
+                  <th>可辅导科目</th>
+                  <th>备注</th>
                 </tr>
-                <tr>
-                  <td>183</td>
-                  <td>John Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-success">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>219</td>
-                  <td>Alexander Pierce</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-warning">Pending</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>657</td>
-                  <td>Bob Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-primary">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>175</td>
-                  <td>Mike Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-danger">Denied</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
+              </thead>
+                <tbody>
+               
+                
+                </tbody>
+                <tfoot>
               </table>
             </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
 
-            </section>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
 </div>
+  
    
   <!-- /.content-wrapper -->
   
@@ -538,11 +532,46 @@
 <script src="../../js/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../../js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../../js/jquery.dataTables.js"></script>
+<script src="../../js/dataTables.bootstrap.js"></script>
+<!-- FastClick -->
+<script src="../../js/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../../js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../js/demo.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
+     
+     <!-- page script -->
+<script>
+  $(function () {
+	$('#example1').DataTable()
+    $('#qimeng').DataTable({
+      'paging'      : true,
+      'lengthChange': false, 
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false,
+      serverSide	: true,
+      ajax		:'preschool.txt',
+     /* "columns": [
+          { "data": "id" },
+          { "data": "username" },
+          { "data": "sex" },
+          { "data": "school" },
+          { "data": "major" },
+          { "data": "education" },
+          { "data": "teacharea" },
+          { "data": "subject" },
+          { "data": "comment" }
+      ]*/
+    })
+  });
+</script>
 </body>
 </html>
