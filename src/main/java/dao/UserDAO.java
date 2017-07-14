@@ -110,7 +110,7 @@ public class UserDAO {
 		}
     } //end add
 	
-	public boolean editUser(String id,String username,String password,String phone) 
+	public boolean editUser(int id,String username,String password,String phone) 
 	{
 		conn=getConnectionn();
 		try{
@@ -118,7 +118,7 @@ public class UserDAO {
 		    pStat.setString(1, username);
 		    pStat.setString(2, password);
 		    pStat.setString(3, phone);
-		    pStat.setString(4, id);
+		    pStat.setInt(4, id);
 		    int cnt=pStat.executeUpdate();
 		    if(cnt>0) 
 		    	return true;
@@ -126,6 +126,7 @@ public class UserDAO {
 		    	return false;
 		}
 		catch(Exception e){
+			e.printStackTrace();
 			return false;
 		}
 		finally{
@@ -148,6 +149,29 @@ public class UserDAO {
 		catch (Exception e) 
 		{ 
 			return -1; 
+	    }
+		finally
+		{
+		    close();
+		}
+	} //end findUserId
+	
+	public String findUserPhone(String username, String password){
+		conn=getConnectionn();
+		try {
+			pStat =conn.prepareStatement("select phone from users where username=? and password=?");
+		    pStat.setString(1, username);
+		    pStat.setString(2, password);
+		    rs=pStat.executeQuery();
+		    if( rs.next() ) 
+		    	return rs.getString("phone");
+		    else 
+			    return null;
+		}
+		catch (Exception e) 
+		{ 
+			e.printStackTrace();
+			return null; 
 	    }
 		finally
 		{
