@@ -39,7 +39,7 @@ function checkRepassword() {
     var password = document.getElementById("password").value.trim();
     //校验密码和上面密码必须一致
     if (repassword != password) {
-        document.getElementById("repasswordInfo").innerHTML = "两次输入的密码不一致";
+        document.getElementById("repasswordInfo").innerHTML = "两次输入的密码不一致";//提示框
     }
     else{
         document.getElementById("repasswordInfo").innerHTML = "";
@@ -51,7 +51,7 @@ function checkPhone() {
     if (phone=="") {
         document.getElementById("phoneInfo").innerHTML = "手机号码不能为空";
     }
-    else {
+    else {//正常
         document.getElementById("phoneInfo").innerHTML = "";
     }
 }
@@ -72,21 +72,25 @@ function checkPhone() {
 				  onblur="checkUserName()" placeholder="用户名" />
 				  <span id="nameInfo" style="color:red" ></span>
 			   </div>
+			   
 			   <div class="row">
 				  <input type="password" class="input-text-password noPic input-click" name="password" id="password"
 				  onblur="checkPassword()" placeholder="密码" />
 				  <span id="passwordInfo" style="color:red" ></span>
 			   </div>
+			   
 			   <div class="row">
 				  <input type="password" class="input-text-password noPic input-click" name="passwordAgain" id="passwordAgain"
 				  onblur="checkRepassword()" placeholder="确认密码" />
 				  <span id="repasswordInfo" style="color:red"></span>
 			   </div>
+			   
 			   <div class="row">
 				  <input type="text" class="input-text-user noPic input-click" name="phone" id="phone"
 				  onblur="checkPhone()" placeholder="手机号码" />
 				  <span id="phoneInfo" style="color:red"></span>
-			   </div>			
+			   </div>		
+			   	
                <div class="row">
 				  <input type="text" class="input-text-user noPic input-click" name="email" id="email"
 				  placeholder="邮箱" />
