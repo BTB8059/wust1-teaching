@@ -49,8 +49,8 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <li><a href="tutorlogin.html">登录</a></li>
-          <li><a href="tutorregister.html">注册</a></li>
+          <li><a href="../../tutorlogin.html">登录</a></li>
+          <li><a href="../../tutorregister.html">注册</a></li>
         </ul>
       </div>
     </nav>
@@ -184,10 +184,6 @@
         <img src="../../img/yuanfudao.jpg" width="80px" style="margin-right:250px">
                      学前教育家教信息
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="../../tutorlogin.html"> 登录</a></li>
-        <li><a href="../../tutorregister.html">注册</a></li>
-      </ol>
     </section>  
 
     <!-- /.content -->
@@ -425,7 +421,7 @@
   $(document).ready(function(){
         $.ajax({  
 	            type: "POST",  
-	            url: "http://localhost:8080/jiajiaowang/UsernameServlet",  
+	            url: "/jiajiaowang/UsernameServlet",  
 	            dataType:"json", 	           
                 success: function(data){
                 	if(data.status==0)

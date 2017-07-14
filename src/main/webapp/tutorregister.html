@@ -60,7 +60,7 @@ function checkPhone() {
 function regCheck() {
 	 $.ajax({  
         type: "POST",
-        url: "http://localhost:8080/jiajiaowang/TutorRegServlet",  
+        url: "/jiajiaowang/TutorRegServlet",  
         dataType:"json",
         data: $('#signupForm').serialize(),  
         success: function(data){              	

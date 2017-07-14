@@ -332,7 +332,7 @@
   $(document).ready(function(){
         $.ajax({  
 	            type: "POST",  
-	            url: "http://localhost:8080/jiajiaowang/UsernameServlet",  
+	            url: "/jiajiaowang/UsernameServlet",  
 	            dataType:"json", 	           
                 success: function(data){
                 	if(data.status==0)
@@ -351,7 +351,7 @@
   $(document).ready(function(){
 	  $.ajax({  
           type: "POST",
-          url: "http://localhost:8080/jiajiaowang/InforServlet",  
+          url: "/jiajiaowang/InforServlet",  
           dataType:"json",  
           success: function(data){              	
              if(data.status==0){
@@ -369,7 +369,7 @@
   function editcheck() {
       $.ajax({
           type: "POST",
-          url: "http://localhost:8080/jiajiaowang/EditServlet",  
+          url: "/jiajiaowang/EditServlet",  
           dataType:"json",
           data: $('#editform').serialize(),  
           success: function(data){              	

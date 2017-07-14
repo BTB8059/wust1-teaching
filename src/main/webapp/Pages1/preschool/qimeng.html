@@ -17,7 +17,6 @@
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="../../css/skins/skin-blue.min.css">
-  <link href="css/Default.css" rel="stylesheet" type="text/css" />
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,8 +58,8 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <li><a href="tutorlogin.html">登录</a></li>
-          <li><a href="tutorregister.html">注册</a></li>
+          <li><a href="../../tutorlogin.html">登录</a></li>
+          <li><a href="../../tutorregister.html">注册</a></li>
         </ul>
       </div>
     </nav>
@@ -193,10 +192,6 @@
         <img src="../../img/yuanfudao.jpg" width="60px" style="margin-right:250px">
                      启蒙教育家教信息
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="../../tutorlogin.html"> 登录</a></li>
-        <li><a href="../../tutorregister.html">注册</a></li>
-      </ol>
     </section>
     
 
@@ -437,7 +432,7 @@
   $(document).ready(function(){
         $.ajax({  
 	            type: "POST",  
-	            url: "http://localhost:8080/jiajiaowang/UsernameServlet",  
+	            url: "/jiajiaowang/UsernameServlet",  
 	            dataType:"json", 	           
                 success: function(data){
                 	if(data.status==0)

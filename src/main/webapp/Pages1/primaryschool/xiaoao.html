@@ -49,8 +49,8 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <li><a href="tutorlogin.html">登录</a></li>
-          <li><a href="tutorregister.html">注册</a></li>
+          <li><a href="../../tutorlogin.html">登录</a></li>
+          <li><a href="../../tutorregister.html">注册</a></li>
         </ul>
       </div>
     </nav>
@@ -87,7 +87,7 @@
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">HEADER</li>
+        <li class="header">目录</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="../../starter.html"><i class="fa fa-link"></i> <span>首页</span></a></li>
         <li><a href="../../pages/tables/data.html"><i class="fa fa-link"></i> <span>所有家教信息</span></a></li>
@@ -183,10 +183,6 @@
         <img src="../../img/yuanfudao.jpg" width="80px" style="margin-right:250px">
                      小学奥数家教信息
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="../../tutorlogin.html"> 登录</a></li>
-        <li><a href="../../tutorregister.html">注册</a></li>
-      </ol>
     </section>
 
     
@@ -422,7 +418,7 @@
   $(document).ready(function(){
         $.ajax({  
 	            type: "POST",  
-	            url: "http://localhost:8080/jiajiaowang/UsernameServlet",  
+	            url: "/jiajiaowang/UsernameServlet",  
 	            dataType:"json", 	           
                 success: function(data){
                 	if(data.status==0)
