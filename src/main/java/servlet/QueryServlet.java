@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import DAO.TutorDAO;
 import beans.JsonResult;
 import beans.JsonTutor;
 import beans.Tutor;
+import DAO.TutorDAO;
 
 /**
  * Servlet implementation class QueryServlet

@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import DAO.UserDAO;
 import beans.JsonResult;
 import beans.User;
+import DAO.UserDAO;
 
 /**
  * Servlet implementation class TutorRegServlet
