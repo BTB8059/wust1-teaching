@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import beans.JsonResult;
 import beans.JsonUser;
 import dao.UserDAO;
 
@@ -36,10 +35,12 @@ public class InforServlet extends HttpServlet {
         JsonUser ju=new JsonUser();	
         UserDAO userdao=new UserDAO();
 		String username=(String) request.getSession().getAttribute("username");
-		String password=(String) request.getSession().getAttribute("password");
 		
-		int id=userdao.findUserId(username, password);
-		String phone=userdao.findUserPhone(username, password);
+		int id=userdao.findUserId(username);
+		String password=userdao.findUserPassword(username);
+		String phone=userdao.findUserPhone(username);
+		
+		//System.out.println(id+phone);
 		if(id!=-1 && !phone.equals(null)){
 			ju.setStatus(0);
 			ju.setMessage("success");

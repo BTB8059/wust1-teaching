@@ -134,12 +134,11 @@ public class UserDAO {
 		}
 	}
 	
-	public int findUserId(String username, String password){
+	public int findUserId(String username){
 		conn=getConnectionn();
 		try {
-			pStat =conn.prepareStatement("select id from users where username=? and password=?");
+			pStat =conn.prepareStatement("select id from users where username=?");
 		    pStat.setString(1, username);
-		    pStat.setString(2, password);
 		    rs=pStat.executeQuery();
 		    if( rs.next() ) 
 		    	return rs.getInt("id");
@@ -156,15 +155,36 @@ public class UserDAO {
 		}
 	} //end findUserId
 	
-	public String findUserPhone(String username, String password){
+	public String findUserPhone(String username){
 		conn=getConnectionn();
 		try {
-			pStat =conn.prepareStatement("select phone from users where username=? and password=?");
+			pStat =conn.prepareStatement("select phone from users where username=?");
 		    pStat.setString(1, username);
-		    pStat.setString(2, password);
 		    rs=pStat.executeQuery();
 		    if( rs.next() ) 
 		    	return rs.getString("phone");
+		    else 
+			    return null;
+		}
+		catch (Exception e) 
+		{ 
+			e.printStackTrace();
+			return null; 
+	    }
+		finally
+		{
+		    close();
+		}
+	} //end findUserId
+	
+	public String findUserPassword(String username){
+		conn=getConnectionn();
+		try {
+			pStat =conn.prepareStatement("select password from users where username=?");
+		    pStat.setString(1, username);
+		    rs=pStat.executeQuery();
+		    if( rs.next() ) 
+		    	return rs.getString("password");
 		    else 
 			    return null;
 		}

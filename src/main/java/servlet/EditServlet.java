@@ -41,7 +41,7 @@ public class EditServlet extends HttpServlet {
 		JsonResult jr=new JsonResult();
 		UserDAO userdao=new UserDAO();	
 		
-		int id=userdao.findUserId(username1, password);
+		int id=userdao.findUserId(username1);
 		
 		if(!username.equals(username1))
 		{
