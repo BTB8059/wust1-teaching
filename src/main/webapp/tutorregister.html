@@ -21,13 +21,13 @@ function checkUserName() {
         return true;
     }
 }
-//验证密码（长度在8个字符到16个字符）
+//验证密码（长度在6个字符到16个字符）
 function checkPassword() {
     var password = document.getElementById("password").value.trim();
     //密码长度在6个字符到16个字符，由字母、数字和"_"组成
     var passwordRegex = /^[0-9A-Za-z_]\w{5,15}$/;
     if (!passwordRegex.test(password)) {
-        document.getElementById("passwordInfo").innerHTML = "密码长度必须在6个字符到16个字符之间";
+        document.getElementById("passwordInfo").innerHTML = "密码长度在6~16个字符之间，由字母、数字和_组成";
     }
     else {
         document.getElementById("passwordInfo").innerHTML = "";
